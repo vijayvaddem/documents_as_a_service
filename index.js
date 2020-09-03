@@ -12,7 +12,6 @@ app.use(cors());
 
 //listen on a port
 app.listen("4000", () => {
-  console.log("This is v55");
   console.log("listening on 4000");
 });
 
@@ -25,7 +24,7 @@ app.get("/documents", (req, res) => {
 });
 
 //API to post data
-app.post("/documents", async (req, res) => {
+app.post("/documents/create", async (req, res) => {
   //generate random id
   const id = randomBytes(4).toString("hex");
 
@@ -58,6 +57,5 @@ app.post("/documents", async (req, res) => {
 
 //post handler for incoming events request
 app.post("/event", (req, res) => {
-  console.log("Incoming event received for document srv:", req.body.type);
   res.send({});
 });
